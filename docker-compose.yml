@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:15.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: siscolar
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgres:/pg-data
+    restart: always
+  
+  backend:
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - ./app:/app
+    depends_on:
+      - postgres
+    command: flask run --host 0.0.0.0
+
+volumes:
+  postgres_data:
