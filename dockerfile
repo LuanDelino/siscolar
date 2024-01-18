@@ -9,8 +9,7 @@ RUN pip install flask \
                 flask-smorest\
                 psycopg2-binary \
                 flask-SQLAlchemy \
-                marshmallow \
-                pytz
+                marshmallow 
 
 COPY . .
 

@@ -15,8 +15,13 @@ class IncidentResource(MethodView):
     def post(self):
         pass
 
-    def put(self):
+@blp.route("/grade")
+class GradeResource(MethodView):
+    def get(self, grade_id):
         pass
 
-    def delete(self):
+    def put(self, grade_id):
+        pass
+
+    def delete(self, grade_id):
         pass

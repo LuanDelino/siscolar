@@ -24,6 +24,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 api = Api(app)
 
 api.register_blueprint(IncidentTypeBlueprint)
+api.register_blueprint(GradeBlueprint)
 
 db.init_app(app)
 

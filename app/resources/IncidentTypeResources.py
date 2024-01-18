@@ -55,10 +55,15 @@ class IncidentTypeResource(MethodView):
         return incident
     
     @blp.arguments(IncidentTypeSchema)
-    @blp.response(200, IncidentTypeSchema)
-    def put(self, incident_id):
+    @blp.response(204, IncidentTypeSchema)
+    def patch(self, incident_data, incident_id):
         incident = IncidentTypeModel.query.get_or_404(incident_id)
-        pass
+        if incident:
+            incident.name = incident_data.get('name')
+            incident.is_active = incident_data.get('is_active') if incident_data.get('is_active') != None else True
+
+        db.session.add(incident)
+        db.session.commit()
 
     @blp.response(204, IncidentTypeSchema)
     def delete(self, incident_id):
