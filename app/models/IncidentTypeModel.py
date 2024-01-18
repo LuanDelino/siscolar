@@ -1,16 +1,10 @@
 from uuid import uuid4
+from core.database import db
 
-import flask
-from flask.views import MethodView
-from flask_smorest import Blueprint, abort
+class IncidentTypeModel(db.Model):
+    __tablename__ = 'incident_type'
 
-
-blp = Blueprint("Grade", __name__, description="Operations on Grades")
-
-@blp.route("/grade")
-class GradeResource(MethodView):
-    def get(self):
-        return {"msg": "Teste Grade"}
-    
-    def post(self):
-        abort()
+    id = db.Column(db.UUID(as_uuid=True), primary_key=True, default=uuid4())
+    name = db.Column(db.String, nullable=False)
+    is_active = db.Column(db.Boolean)
+    created_at = db.Column(db.DateTime)

@@ -8,7 +8,9 @@ WORKDIR /app
 RUN pip install flask \
                 flask-smorest\
                 psycopg2-binary \
-                flask-SQLAlchemy 
+                flask-SQLAlchemy \
+                marshmallow \
+                pytz
 
 COPY . .
 

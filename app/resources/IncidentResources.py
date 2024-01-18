@@ -13,4 +13,10 @@ class IncidentResource(MethodView):
         return {"msg": "Teste incidente"}
     
     def post(self):
-        abort()
+        pass
+
+    def put(self):
+        pass
+
+    def delete(self):
+        pass

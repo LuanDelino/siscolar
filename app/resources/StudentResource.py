@@ -13,4 +13,10 @@ class StudentsResource(MethodView):
         return {"msg": "Teste Students"}
     
     def post(self):
-        abort()
+        pass
+
+    def put(self):
+        pass
+
+    def delete(self):
+        pass
